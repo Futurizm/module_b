@@ -1,0 +1,122 @@
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*, *:before, *:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus, :active{outline: none;}
+a:focus, a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html, body{
+	height: 100%;
+	width: 100%;
+	font-style: 100%;
+	line-height: 1;
+	font-style: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea{font-family: inherit;}
+
+input::-ms-clear{display:none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding: 0;border: 0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style-type: none;}
+img{vertical-align: top;}
+
+h1,h2, h3, h4, h5, h6{font-style: inherit; font-weight: 400;}
+/* ============================= */
+
+body {
+	background: black;
+}
+
+._container {
+	margin: 0 auto;
+}
+
+.wrapper {
+    padding: 10px 15px;
+    min-height: 100vh;
+    overflow:hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+/* ============================= */
+
+.list {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+input {
+    border: 1px solid #000;
+}
+
+.workspace__form {
+    margin-bottom: 20px;
+}
+
+
+/* ============Login================= */
+
+.input__block {
+	min-width: 500px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+
+	background-color: #fff;
+	border: 1px solid black;
+	padding: 20px;
+	border-radius: 20px;
+}
+
+.input__form {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.input__header {
+	font-weight: 500;
+	font-size: 50px;
+}
+
+
+.input__username {
+	padding: 5px 6px;
+	border-radius: 5px;
+	font-size: 30px;
+	border: 1px solid rgb(162, 161, 161);
+}
+
+.input__password {
+	padding: 5px 6px;
+	border-radius: 5px;
+	font-size: 30px;
+	border: 1px solid rgb(162, 161, 161);
+}
+
+.input__button {
+	align-self: center;
+	padding: 10px 20px;
+	background-color: orange;
+	font-size: 20px;
+	border-radius: 10px;
+	color: white;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/update-workspace.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="_container">
+            <form action="http://localhost:7000/workspace/update-workspace/<%= data.id %>" method="post" class="workspace__update">
+                <label for="workspace__title" class="label">Title:</label>
+                <input type="text" class="workspace__title" id="workspace__title" name="title" required value="<%= data.title %>">
+                <label for="workspace__description" class="label">Description: </label>
+                <input type="text" class="workspace__description" id="workspace__description" name="description" required value="<%= data.description %>">
+                <input type="hidden" name="id" value="<%= data.id %>">
+                <div class="button__block">
+                    <button type="submit" class="workspace__button">Update Workspace</button>
+                </div>
+            </form>
+        </div>
+       
+    </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+
+async function importCSV() {
+    const data = []
+    
+    fs.createReadStream(csvFilePath)
+    .pipe(parse({ delimiter: ',' }))
+    .on('data', (row) => {
+        data.push(row)
+    })
+    .on('end', async () => {
+        try {
+            
+            await Bill.bulkCreate(data)
+            console.log('Импорт завершен успешно!')
+        } catch (error) {
+            console.error('Ошибка при импорте данныех: ', error)
+        } finally {
+            await sequelize.close()  // Закройте соединение с базой данных
+        }
+    })
+}
+
+importCSV()
+
+
+
+
+
+
+username: {type: DataTypes.STRING, allowNull: false},
+    workspace_title: {type: DataTypes.STRING, allowNull: false},
+    api_token_name: {type: DataTypes.STRING, allowNull: false},
+    usage_duration_in_ms: {type: DataTypes.INTEGER, allowNull: false},
+    usage_started_at: {type: DataTypes.DATE, allowNull: false},
+    service_name: {type: DataTypes.STRING, allowNull: false},
+    service_cost_per_ms: {type: DataTypes.DECIMAL, allowNull: false},
+
+
+
+
+
+
+
+
+    const {DataTypes, Sequelize} = require('sequelize')
+const fs = require('fs')
+const parse = require('csv-parser')
+
+
+const csvFilePath = 'C:\\Users\\user\\Desktop\\course\\projects\\worldskills__proj__2\\backend\\csv_files\\service_usages.csv'
+
+
+
+
+
+
+
+
+
+
+# production
+Token: 1d145812-0e3f-46fa-a06e-16fe89ae806b
+
+# development
+Token: 64f13e7e-43c3-4f3b-8245-5cc599abee05
+

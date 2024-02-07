@@ -1,0 +1,63 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/workspace-styles.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="_container">
+                <form action="http://localhost:7000/workspace/workspace-demo1" class="workspace__form" method="post" style="display: inline-block;">
+                    <label class="workspace__label" for="workspace__title">Title:</label>
+                    <input type="text" class="workspace__title" id="workspace__title" name="title" required>
+                    <label class="workspace__label" for="workspace__description">Description: </label>
+                    <input type="text" class="workspace__description" id="workspace__description" name="description" required>
+                    <button type="submit" class="workspace__button">Create workspace</button>
+                </form>
+                <a href="http://localhost:7000/user/login" class="workspace__logout">Log out</a>
+            </div>
+
+            <% if (data && data.length > 0) { %>    
+                <ul>
+                    <% data.forEach(entry => { %>
+                        <li class="list">
+                            <strong class="title">Title:</strong> <p class="entry"><%= entry.title %></p>
+                            <strong class="description">Description:</strong> <p class="desc"><%= entry.description %></p>
+                            
+
+                            <div class="buttons">
+                                <form action="http://localhost:7000/workspace/delete-workspace/<%= entry.id %>" method="post" style="display: inline;">
+                                    <button type="submit" class="delete__button">Delete</button>
+                                </form>
+        
+                                <form action="http://localhost:7000/workspace/update-workspace/<%= entry.id %>" method="get" style="display: inline;">
+                                    <button type="submit" class="update__button">Update</button>
+                                </form>
+        
+                                <form action="http://localhost:7000/token/api-tokens/<%= entry.id %>" method="get">
+                                    <button type="submit" class="api__button">Get API Token</button>
+                                </form>
+        
+                                <form action="http://localhost:7000/billing-quota/render-quota/<%= entry.id %>" method="get">
+                                    <button type="submit" class="billing__button">Billing Quotas</button>
+                                    <p class="usage">Usage in this month: 10$</p> 
+                                </form>
+
+                                <% if (entry.title === "My App") { %>
+                                    <form action="http://localhost:7000/bills/bills-list" method="get">
+                                        <input type="hidden" name="title" value="My App">
+                                        <button type="submit" class="bills__button">Bills</button>
+                                    </form>
+                                <% } %>
+                            </div>
+                        </li>
+                    <% }) %>
+                </ul>
+            <% } else { %>
+                <p class="no__data">No data available</p>
+            <% } %>
+        </div>
+    </body>
+    </html>

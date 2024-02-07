@@ -1,0 +1,97 @@
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*, *:before, *:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus, :active{outline: none;}
+a:focus, a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html, body{
+	height: 100%;
+	width: 100%;
+	font-style: 100%;
+	line-height: 1;
+	font-style: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea{font-family: inherit;}
+
+input::-ms-clear{display:none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding: 0;border: 0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style-type: none;}
+img{vertical-align: top;}
+
+h1,h2, h3, h4, h5, h6{font-style: inherit; font-weight: 400;}
+/* ============================= */
+
+.wrapper {
+    padding: 10px 15px;
+    min-height: 100vh;
+    overflow:hidden;
+}
+
+._container {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 100px;
+    padding-top: 50px; 
+}
+
+/* ============================= */
+
+input {
+    border: 1px solid #000;
+}
+
+
+/* ====Workspace Update========= */
+
+
+.label {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.workspace__title {
+    margin-right: 20px;
+    font-size: 20px;
+    border: 1px solid rgb(157, 156, 156);
+    border-radius: 5px;
+}
+
+.workspace__description {
+    font-size: 20px;
+    border: 1px solid rgb(157, 156, 156);
+    border-radius: 5px;
+}
+
+.button__block {
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+.workspace__button {
+    padding: 10px 15px;
+    background-color: #000;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+
+

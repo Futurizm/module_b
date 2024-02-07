@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/billing-quotas.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="_container">
+            <div class="form__block">
+                <form action="http://localhost:7000/billing-quota/create-quota/<%= workspaceId %>" class="billing__form" method="post" style="display: inline-block;">
+                    <label for="quota__limit" class="label">Limit:</label>
+                    <input class="quota__limit" type="number" step="0.01" id="quota__limit" name="limit" required>
+                    <button type="submit" class="create__button">Create Limitation</button>
+                </form>
+        
+                <a href="http://localhost:7000/workspace/workspace-demo2" class="cancel">Cancel</a>
+            </div>
+    
+            <ul>
+                <% if (data && data.length > 0) { %>    
+                    <% data.forEach(entry => { %>
+                        <li class="list">
+                            <strong class="label">Limit:</strong> <p class="limit"><%= entry.limit %></p>
+    
+                            <form action="http://localhost:7000/billing-quota/delete-quota/<%= entry.id %>" method="post" style="display: inline;">
+                                <button type="submit" class="delete__button">Delete Limitation</button>
+                            </form>
+                        </li>
+                    <% }) %>
+                <% } else { %>
+                    <p class="no__data">No billing quotas available</p>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

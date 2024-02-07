@@ -1,0 +1,143 @@
+*{
+	border: 0;
+}
+*, *:before, *:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ============================= */
+
+.wrapper {
+    padding: 10px 15px;
+    min-height: 100vh;
+    overflow:hidden;
+}
+
+._container {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 100px;
+    padding-top: 50px; 
+}
+
+/* ============================= */
+
+.wrapper {
+    padding: 10px 15px;
+    min-height: 100vh;
+    overflow:hidden;
+}
+
+._container {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 100px;
+    padding-top: 50px; 
+}
+
+/* ============================= */
+
+input {
+    border: 1px solid #000;
+}
+
+/* ============================= */
+
+
+.label {
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.token__name {
+    border-radius: 5px;
+    border: 1px solid #949191;
+    font-size: 17px;
+    margin-right: 10px;
+}
+
+.token__form {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.token__button {
+    padding: 10px 15px;
+    background-color: black;
+    color: white;   
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.back {
+    border: 1px solid #000;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: white;
+    background-color: #000;
+}
+
+.name {
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 7px;
+    color: #fff;
+}
+
+.token__date {
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 7px;
+    color: #fff;
+}
+
+.token__title {
+    color: #fff;
+    font-size: 18px;
+}
+.token__creation {
+    color: #fff;
+    font-size: 18px;
+}
+
+.tokens {
+    border: 1px solid black;
+    text-align: center; 
+    padding: 10px 0px;
+    margin-bottom: 10px;
+    background-color: #000;
+}
+
+.revoke__button {
+    padding: 10px 15px;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+}
+
+.token__value {
+    margin-bottom: 20px;
+}
+
+.token__back {
+    border: 1px solid #000;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: white;
+    background-color: #000;
+}
+
+.no__data {
+    font-size: 17px;
+}

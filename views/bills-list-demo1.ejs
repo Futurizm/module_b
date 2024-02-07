@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bills.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+         <!-- Добавьте поле выбора месяца в форму -->
+         <form action="http://localhost:7000/bills/bills-list" method="get" style="display: inline-block" class="form">
+            <label for="monthSelector">Select a month:</label>
+            <input type="month" id="monthSelector" name="selectedMonth">
+            <button type="submit" class="filter">Filter</button>
+        </form>
+
+        <a href="http://localhost:7000/workspace/workspace-demo1" class="back">Back</a>
+
+
+        <% if (bills && bills.length > 0) { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Token</th>
+                        <th>Time</th>
+                        <th>Per sec.</th>
+                        <th>Total</th>
+                        <!-- и так далее -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <% let currentToken = null; %>
+                    <% bills.forEach(entry => { %>
+                        <% if (entry.api_token_name !== currentToken) { %>
+                            <tr class="token-header">
+                                <td colspan="4"><%= entry.api_token_name %></td>
+                            </tr>
+                            <% currentToken = entry.api_token_name; %>
+                        <% } %>
+                        <tr>
+                            <!-- Отображение данных из объекта entry -->
+                            <td><%= entry.service_name %></td>
+                            <td><%= entry.usage_duration_in_ms / 1000 %></td>
+                            <td>$ <%= entry.service_cost_per_ms * 1 %></td>
+                            <td>$ <%= entry.service_cost_per_ms * 100 %></td>
+                            <!-- и так далее -->
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>No data available</p>
+        <% } %>
+    </div>
+</body>
+</html>

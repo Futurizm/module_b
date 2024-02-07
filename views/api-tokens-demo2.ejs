@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/api-tokens.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <h2>Create API Token</h2>
+        <form action="http://localhost:7000/token/create-token/<%= workspaceId %>" class="token__form" method="post" style="display: inline;">
+            <label for="tokenName" class="label">Token Name:</label>
+            <input type="text" id="tokenName" class="token__name" name="title" required>
+            <button type="submit" class="token__button">Create Token</button>
+        </form>
+
+        <a href="http://localhost:7000/workspace/workspace-demo2" class="back">Back</a>
+
+        <h2>API Tokens</h2>
+            <div id="tokensContainer">
+                <% if (typeof title !== 'undefined') { %>
+                    <div class="token">
+                        <p class="token__value"><strong>Token:</strong> <%= token %></p>
+                        <a style="display: inline-block" href="http://localhost:7000/token/api-tokens/<%= workspaceId %>" class="token__back">Go back</a>
+                        <!-- Дополнительная информация о токене (не показывает token_value) -->
+                    </div>
+                <% } else if (tokens && tokens.length > 0) { %>
+                    <% tokens.forEach(token => { %>
+                        <div class="tokens">
+                            <p><strong class="name">Name:</strong> <span class="token__title"> <%= token.title %> </p></p>
+                            <p><strong class="token__date">Token CreationDate:</strong> <span class="token__creation"> <%= token.createdAt %> </p></p>
+                            <form action="http://localhost:7000/token/revoke-token/<%= token.id %>" method="post">
+                                <button type="submit" class="revoke__button">Revoke Token</button>
+                            </form>
+                        </div>
+                    <% }); %>
+                <% } else { %>
+                    <p class="no__data">No tokens available</p>
+                <% } %>
+            </div>
+    </div>
+</body>
+</html>
